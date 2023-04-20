@@ -39,7 +39,7 @@ data = [{'id': 'Industries', 'datum': 700000000, 'offset' : True, 'children' : [
                    'children' : [
                      {'id' : "PaleBlue", 'datum' : 50000000},
                      {'id' : "STRIVR", 'datum' : 50000000},
-                     {'id' : "3M Science Applied to Life", 'datum' : 50000000},
+                     {'id' : "3M Science", 'datum' : 50000000},
                      {'id' : "EliteVR", 'datum' : 50000000},
                      {'id' : "Avatour", 'datum' : 50000000},
                      {'id' : "VR vision", 'datum' : 50000000},
@@ -106,7 +106,7 @@ data = [{'id': 'Industries', 'datum': 700000000, 'offset' : True, 'children' : [
                      {'id' : "EON Reality", 'datum' : 50000000},
                         {'id' : "OneBonsai", 'datum' : 50000000},
                    ]},
-               {'id' : "Defence", 'datum' : 100000000,  'offset' : 1,
+               {'id' : "Defense", 'datum' : 100000000,  'offset' : 1,
                    'children' : [
                      {'id' : "OneBonsai", 'datum' : 50000000},
                         {'id' : "EON Reality", 'datum' : 50000000},
@@ -154,7 +154,7 @@ for circle in circles:
     x, y, r = circle
     label = circle.ex["id"]
     ax.add_patch( plt.Circle((x, y), r, alpha=0.5, linewidth=2, color="#69b3a2"))
-    plt.annotate(label, (x,y ), ha='center', color="white", bbox=dict(facecolor='#69b3a2', edgecolor='white', boxstyle='round', pad=.5))
+    plt.annotate(label, (x,y ), ha='center', color="white", fontsize="9", bbox=dict(facecolor='#69b3a2', edgecolor='white', boxstyle='round', pad=.5))
 
 # Print labels for the continents
 for circle in circles:
@@ -162,13 +162,18 @@ for circle in circles:
       continue
     x, y, r = circle
     label = circle.ex["id"]
+
+    offset = 0
+
     if (circle.ex["offset"] == 3):
-        plt.annotate(label, (x,y +.25 ) ,va='center', ha='center', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
+        offset = .25
     elif (circle.ex["offset"] == 2):
-        plt.annotate(label, (x,y +.2 ) ,va='center', ha='center', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
+        offset = .2
     elif (circle.ex["offset"] == 1):
-        plt.annotate(label, (x,y +.13 ) ,va='center', ha='center', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
+        offset = .13
+
+    plt.annotate(label, (x,y + offset ) ,va='center', ha='center', fontsize="10", bbox=dict(facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
 
 # plt.show()
-plt.savefig("figure", dpi=300)
+plt.savefig("figure", dpi=500)
 plt.close()
