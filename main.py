@@ -170,5 +170,5 @@ for circle in circles:
         plt.annotate(label, (x,y +.13 ) ,va='center', ha='center', bbox=dict(facecolor='white', edgecolor='black', boxstyle='round', pad=.5))
 
 # plt.show()
-plt.savefig("figure")
+plt.savefig("figure", dpi=300)
 plt.close()
